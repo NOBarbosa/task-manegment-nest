@@ -12,4 +12,8 @@ export class UsersService {
     newUser.password = bryptHashSync(newUser.password, 10);
     this.users.push(newUser);
   }
+
+  findByUserName(username: string): UserDto | null {
+    return this.users.find((user) => user.username === username) || null;
+  }
 }
